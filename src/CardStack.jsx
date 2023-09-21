@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './card.css';
 
 const listOfCards = [
@@ -31,11 +31,11 @@ export const CardStack = () => {
     }
   };
 
-  const handlePrevClick = () => {
+  const handlePrevClick =  () => {
     if (!transitioning) {
       setTransitioning(true);
-      setCurrentCards((prevCards) => {
-        const currentIndex = listOfCards.indexOf(prevCards[0]);
+     setCurrentCards((prevCards) => {
+        const currentIndex =  listOfCards.indexOf(prevCards[0]);
         const prevIndex = (currentIndex - 1 + listOfCards.length) % listOfCards.length;
         const newCards = [];
 
@@ -49,7 +49,7 @@ export const CardStack = () => {
   };
 
   useEffect(() => {
-    const transitionDuration = 800; // Adjust the transition duration
+    const transitionDuration = 800; 
     const timer = setTimeout(() => {
       setTransitioning(false);
     }, transitionDuration);
@@ -69,7 +69,7 @@ export const CardStack = () => {
                 width: `${400 - index * 50}px`,
                 height: `${400 - index * 50}px`,
                 transform: `translateX(${index === 0 && transitioning ? '-50%' : index * 50}px)`,
-                animation: `${index === 0 && transitioning ? 'slide-1' : index === 1 && transitioning ? 'slide-2' : 'slide-3'} 0.8s ease-in-out` // Apply different animations
+                animation: `${index === 0 && transitioning ? 'slide-1' : index === 1 && transitioning ? 'slide-2' : 'slide-3'} 0.8s ease-in-out`
               }}
             >
               {card.title}

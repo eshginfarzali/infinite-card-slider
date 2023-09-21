@@ -49,19 +49,22 @@
   z-index: -10;
   animation-name: slide-3;
 }
+button{
+  padding: 10px;
+}
 
 @keyframes slide-1 {
   0% {
     transform: translateX(0);
-    scale: 1;
+    scale: 0.8;
   }
   50% {
-    scale:0.5;
-    transform: translateX(-25%);
+    scale:0.9;
+    transform: translateX(-15%);
   }
   100% {
-    scale: 0;;
-    transform: translateX(-50%);
+    scale: 1;
+    transform: translateX(-25%);
   }
 }
 
@@ -71,26 +74,25 @@
   }
   50% {
     scale: 0.9;
-    transform: translateX(25%);
+    transform: translateX(15%);
   }
   100% {
     scale: 1;;
-    transform: translateX(50%);
+    transform: translateX(25%);
   }
 }
 
 @keyframes slide-3 {
   0% {
-    scale: 0.8;
+    scale: 1;
     transform: translateX(0);
   }
   50% {
     scale: 0.9;
-    transform: translateX(25%);
+    transform: translateX(15%);
   }
   100% {
     scale: 1;
-    transform: translateX(50%);
-    opacity: 1;
+    transform: translateX(25%);
   }
 }
