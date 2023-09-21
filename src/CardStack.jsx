@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './card.css';
 
 const listOfCards = [
@@ -49,7 +49,7 @@ export const CardStack = () => {
   };
 
   useEffect(() => {
-    const transitionDuration = 500;
+    const transitionDuration = 800; // Adjust the transition duration
     const timer = setTimeout(() => {
       setTransitioning(false);
     }, transitionDuration);
@@ -59,22 +59,23 @@ export const CardStack = () => {
   return (
     <div className="App">
       <div className={`card-stack`}>
-      <div className={`cards ${transitioning ? 'transitioning' : ''}`}>
-  {currentCards.map((card, index) => (
-    <div
-      key={index}
-      className={`card ${index === 0 ? 'front-card' : ''}`}
-      style={{
-        backgroundColor: card.color,
-        width: `${400 - index * 50}px`,
-        height: `${400 - index * 50}px`,
-        transform: `translateX(${index === 0 && transitioning ? '-50%' : index * 50}px)`
-      }}
-    >
-      {card.title}
-    </div>
-  ))}
-</div>
+        <div className={`cards ${transitioning ? 'transitioning' : ''}`}>
+          {currentCards.map((card, index) => (
+            <div
+              key={index}
+              className={`card ${index === 0 ? 'front-card' : ''}`}
+              style={{
+                backgroundColor: card.color,
+                width: `${400 - index * 50}px`,
+                height: `${400 - index * 50}px`,
+                transform: `translateX(${index === 0 && transitioning ? '-50%' : index * 50}px)`,
+                animation: `${index === 0 && transitioning ? 'slide-1' : index === 1 && transitioning ? 'slide-2' : 'slide-3'} 0.8s ease-in-out` // Apply different animations
+              }}
+            >
+              {card.title}
+            </div>
+          ))}
+        </div>
         <div className="button-container">
           <button className="prev-button" onClick={handlePrevClick}>
             Prev
